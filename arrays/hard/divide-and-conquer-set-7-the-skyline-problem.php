@@ -54,16 +54,34 @@ function getMax($arInput, $intIndex)
     return $intMax;
 }
 
+/**
+ * @param $arInput
+ * @return array
+ */
+function getCoords($arInput)
+{
+    $arInputCoords = [];
+    foreach ($arInput as $arRect) {
+        $arInputCoords[] = [0, $arInput[0], $arInput[1], $arInput[2]];
+    }
+    return $arInputCoords;
+}
+
 $intMaxHeight = getMaxHeight($arInput);
 $intMaxY = getMaxY($arInput);
 
+/**
+ * [x-start, x-end, y-start, y-end]
+ */
+$arInputCoords = getCoords($arInput);
 
 /**
  * Way 1
  */
 
 /**
- * Пройтись по каждому значению h , на каждой линии вычислить сумму длин отрезков. Длины отрезков просуммировать
+ * Go through each value of h, on each line, calculate the sum of the lengths of the segments.
+ * Find the sum of the lengths of the segments
  */
 
 $intRectsUnionSize = 0;
@@ -116,3 +134,4 @@ echo "\n";
 /**
  * Way 2
  */
+
